@@ -19,7 +19,7 @@
 	"require": {
 		"php": ">=5.2",
 		"ext-curl": "*",
-		"ext-json": "*",
+		"ext-json": "*"
 	},
 	"autoload": {
 		"psr-0": { "": "lib/" }
