@@ -1,0 +1,27 @@
+{
+	"name": "serverpilot/serverpilot-php",
+	"type": "library",
+	"description": "ServerPilot: the best way to run PHP websites.",
+	"keywords": [
+		"serverpilot",
+		"server management",
+		"api",
+		"control panel"
+	],
+	"homepage": "https://serverpilot.io/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dave Rogers",
+			"email": "redcore@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.2",
+		"ext-curl": "*",
+		"ext-json": "*",
+	},
+	"autoload": {
+		"psr-0": { "": "lib/" }
+	}
+}
