@@ -1,4 +1,4 @@
-serverpilot-php v1.0
+serverpilot-php v1.0.0
 ====================
 
 This PHP API client binds to ServerPilot's RESTful [API](https://github.com/ServerPilot/API) that allows you to manage [ServerPilot](https://serverpilot.io) resources. All responses return JSON objects, including errors.
