@@ -1,5 +1,5 @@
 {
-	"name": "serverpilot/serverpilot-php",
+	"name": "daverogers/serverpilot-php",
 	"type": "library",
 	"description": "ServerPilot: the best way to run PHP websites.",
 	"keywords": [
