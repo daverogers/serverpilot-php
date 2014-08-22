@@ -8,7 +8,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 	{
 		"require": {
-			"daverogers/serverpilot-php": "*"
+			"daverogers/serverpilot-php": "1.*"
 		}
 	}
 ```
@@ -84,6 +84,6 @@ $ssl = $sp->ssl_delete('APPID');
 
 ServerPilot site: [https://serverpilot.io/](https://serverpilot.io)  
 ServerPilot's API doc: [https://github.com/ServerPilot/API](https://github.com/ServerPilot/API)  
-This project's Packagist link: [https://packagist.org/packages/serverpilot/serverpilot-php](https://packagist.org/packages/serverpilot/serverpilot-php)  
+This project's Packagist link: [https://packagist.org/packages/daverogers/serverpilot-php](https://packagist.org/packages/daverogers/serverpilot-php)  
 Getting started with Composer: [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md)  
 If this isn't your style, check out James West's PHP lib here: [https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper](https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper)
