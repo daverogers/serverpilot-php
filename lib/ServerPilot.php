@@ -3,7 +3,10 @@
 /**
  * PHP library to access ServerPilot.io services
  *
- * @author      Dave Rogers <redcore@gmail.com>
+ * @link		<github>	https://github.com/daverogers/serverpilot-php
+ * @link		<packagist>	https://packagist.org/packages/daverogers/serverpilot-php
+ * @version		1.0.1
+ * @author		Dave Rogers <redcore@gmail.com>
  */
 
 class ServerPilot {
@@ -44,7 +47,7 @@ class ServerPilot {
 	/**
 	 * Create a new server
 	 *
-	 * @param	string		Nickname of the server
+	 * @param	string		Nickname of the server. Must be 1 to 255 characters in length, may only contain the characters abcdefghijklmnopqrstuvwxyz0123456789.-
 	 */
 	public function server_create( $name ) {
 		$params['name'] = $name;
@@ -98,8 +101,8 @@ class ServerPilot {
 	 * Create a new system user
 	 *
 	 * @param	string		ID of the server
-	 * @param	string		Name of the new user
-	 * @param	string		Password of the new user. If user has no password, they will not be able to log in.
+	 * @param	string		Name of the new user. Must be 3 to 32 characters in length, may only contain the characters abcdefghijklmnopqrstuvwxyz0123456789.-
+	 * @param	string		Password of the new user. If user has no password, they will not be able to log in. No leading or trailing whitespace is allowed, must be at least 8 characters in length.
 	 */
 	public function sysuser_create( $id, $name, $password = NULL ) {
 		$params = array(
@@ -133,7 +136,7 @@ class ServerPilot {
 	 * Update a system user
 	 *
 	 * @param	string		ID of the system user
-	 * @param	string		New password of the App user
+	 * @param	string		New password of the App user. No leading or trailing whitespace is allowed, must be at least 8 characters in length.
 	 */
 	public function sysuser_update( $id, $password ) {
 		$params['password'] = $password;
@@ -152,11 +155,11 @@ class ServerPilot {
 	/**
 	 * Create a new app
 	 *
-	 * @param	string		Nickname of the app
+	 * @param	string		Nickname of the app. Length must be between 3 and 30 characters, may only contain lowercase ascii letters and digits.
 	 * @param	string		The System User that will "own" this App. Since every System User is specific to a Server, this implicitly determines on which Server the App will be created.
 	 * @param	string		PHP runtime for an App. ["php5.4", "php5.5"]
-	 * @param	array		An array of domains that will be used in the webserver's configuration. 
-	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com. 
+	 * @param	array		An array of domains that will be used in the webserver's configuration.
+	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com.
 	 *						Note: The complete list of domains must be included in every update to this field.
 	 */
 	public function app_create( $name, $sysuserid, $runtime, $domains = array() ) {
@@ -193,8 +196,8 @@ class ServerPilot {
 	 *
 	 * @param	string		ID of the app
 	 * @param	string		PHP runtime for an App. ["php5.4", "php5.5"]
-	 * @param	array		An array of domains that will be used in the webserver's configuration. 
-	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com. 
+	 * @param	array		An array of domains that will be used in the webserver's configuration.
+	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com.
 	 *						Note: The complete list of domains must be included in every update to this field.
 	 */
 	public function app_update( $id, $runtime = NULL, $domains = NULL ) {
@@ -207,7 +210,7 @@ class ServerPilot {
 	}
 
 	/**
-	 * Add an SSL cert to app
+	 * Add an SSL cert to app - requires Coach or Business plan
 	 *
 	 * @param	string		ID of the app
 	 * @param	string		Contents of the private key
@@ -224,7 +227,7 @@ class ServerPilot {
 	}
 
 	/**
-	 * Delete an SSL cert for an app
+	 * Delete an SSL cert for an app - requires Coach or Business plan
 	 *
 	 * @param	string		ID of the app
 	 */
@@ -253,9 +256,9 @@ class ServerPilot {
 	 * Create a new database
 	 *
 	 * @param	string		ID of the app
-	 * @param	string		Name of the database
+	 * @param	string		Name of the database. Length must be between 3 and 64 characters, may contain lowercase ascii letters, digits, or a dash.
 	 * @param	string		Name of database user
-	 * @param	string		Password for database user
+	 * @param	string		Password for database user. Length must be between 1 and 16 characters, may contain lowercase ascii letters, digits, an underscore, or a dash.
 	 */
 	public function database_create( $id, $name, $username, $password ) {
 		$user = new stdClass();
@@ -284,7 +287,7 @@ class ServerPilot {
 	 *
 	 * @param	string		ID of the database
 	 * @param	string		ID for the database user being updated
-	 * @param	string		New password for this database user
+	 * @param	string		New password for this database user. Length must be between 1 and 16 characters, may contain lowercase ascii letters, digits, an underscore, or a dash
 	 */
 	public function database_update( $id, $userid, $password ) {
 		$user = new stdClass();

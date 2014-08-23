@@ -1,4 +1,6 @@
-# serverpilot-php v1.0.0
+# serverpilot-php
+[![Latest Stable Version](https://poser.pugx.org/daverogers/serverpilot-php/v/stable.svg)](https://packagist.org/packages/daverogers/serverpilot-php) [![Total Downloads](https://poser.pugx.org/daverogers/serverpilot-php/downloads.svg)](https://packagist.org/packages/daverogers/serverpilot-php) [![License](https://poser.pugx.org/daverogers/serverpilot-php/license.svg)](https://packagist.org/packages/daverogers/serverpilot-php)
+
 
 This simple PHP API client binds to ServerPilot's RESTful [API](https://github.com/ServerPilot/API) that allows you to manage [ServerPilot](https://serverpilot.io) resources. All responses return JSON objects, including errors.
 
