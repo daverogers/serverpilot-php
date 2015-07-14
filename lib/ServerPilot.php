@@ -333,6 +333,11 @@ class ServerPilot {
 		$response = curl_exec( $req );
 		$http_status = curl_getinfo( $req, CURLINFO_HTTP_CODE );
 
+		if ($response === FALSE) {
+			$curl_error = curl_error( $req );
+			throw new Exception( $curl_error );
+		}
+
 		curl_close( $req );
 
 		// Decode JSON by default
