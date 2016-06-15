@@ -162,13 +162,15 @@ class ServerPilot {
 	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com.
 	 *						Note: The complete list of domains must be included in every update to this field.
 	 */
-	public function app_create( $name, $sysuserid, $runtime, $domains = array() ) {
+	public function app_create( $name, $sysuserid, $runtime, $domains = array(), $wordpress = array() ) {
 		$params = array(
 			'name'		=> $name,
 			'sysuserid'	=> $sysuserid,
 			'runtime'	=> $runtime);
 		if( $domains )
 			$params['domains'] = $domains;
+		if( $wordpress )
+			$params['wordpress'] = $wordpress;
 
 		return $this->_send_request( 'apps', $params, ServerPilot::SP_HTTP_METHOD_POST );
 	}
