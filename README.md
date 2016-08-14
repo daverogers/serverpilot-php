@@ -56,7 +56,7 @@ $action     = $sp->action_info('ACTIONID');
 ```php
 $server     = $sp->server_create('SERVERNAME');
 $user       = $sp->sysuser_create('SERVERID', 'SYSUSERNAME', 'PASSWORD');
-$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS']), ['WORDPRESS'] );
+$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS'], ['WORDPRESS'] );
 $database   = $sp->database_create('APPID', 'DBNAME', 'DBUSER', 'DBPASSWORD');
 ```
 
