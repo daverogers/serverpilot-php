@@ -56,9 +56,11 @@ $action     = $sp->action_info('ACTIONID');
 ```php
 $server     = $sp->server_create('SERVERNAME');
 $user       = $sp->sysuser_create('SERVERID', 'SYSUSERNAME', 'PASSWORD');
-$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS']) );
+$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS']), ['WORDPRESS'] );
 $database   = $sp->database_create('APPID', 'DBNAME', 'DBUSER', 'DBPASSWORD');
 ```
+
+The WordPress array must contain the following keys: `sitle`, `admin_user`, `admin_password`, and `admin_email`
 
 ###Update a resource:
 ```php

@@ -161,6 +161,7 @@ class ServerPilot {
 	 * @param	array		An array of domains that will be used in the webserver's configuration.
 	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com.
 	 *						Note: The complete list of domains must be included in every update to this field.
+	 * @param array		If present, installs WordPress on the App. Value is a JSON object containing keys site_title, admin_user, admin_password, and admin_email, each with values that are strings. The admin_password value must be at least 8 characters long.
 	 */
 	public function app_create( $name, $sysuserid, $runtime, $domains = array(), $wordpress = array() ) {
 		$params = array(
