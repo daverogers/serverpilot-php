@@ -5,7 +5,7 @@
  *
  * @link		<github>	https://github.com/daverogers/serverpilot-php
  * @link		<packagist>	https://packagist.org/packages/daverogers/serverpilot-php
- * @version		1.0.1
+ * @version		1.0.2
  * @author		Dave Rogers <redcore@gmail.com>
  */
 
@@ -169,8 +169,8 @@ class ServerPilot {
 			'runtime'	=> $runtime);
 		if( $domains )
 			$params['domains'] = $domains;
-		if( $wordpress )
-			$params['wordpress'] = $wordpress;
+    if( $wordpress )
+      $params['wordpress'] = $wordpress;
 
 		return $this->_send_request( 'apps', $params, ServerPilot::SP_HTTP_METHOD_POST );
 	}
@@ -210,6 +210,20 @@ class ServerPilot {
 
 		return $this->_send_request( "apps/$id", $params, ServerPilot::SP_HTTP_METHOD_POST );
 	}
+
+  /**
+   * Add an auto SSL cert to app - requires Coach or Business plan.
+   * Use ssl_delete to remove cert.
+   *
+   * @param string  ID of the app
+   * @see https://github.com/ServerPilot/API#enable-autossl
+   */
+  public function ssl_auto( $id ) {
+    $params = array(
+      'auto'   => true);
+
+    return $this->_send_request( "apps/$id/ssl", $params, ServerPilot::SP_HTTP_METHOD_POST );
+  }
 
 	/**
 	 * Add an SSL cert to app - requires Coach or Business plan
@@ -334,11 +348,6 @@ class ServerPilot {
 		// Get the response, clean the request and return the data
 		$response = curl_exec( $req );
 		$http_status = curl_getinfo( $req, CURLINFO_HTTP_CODE );
-
-		if ($response === FALSE) {
-			$curl_error = curl_error( $req );
-			throw new Exception( $curl_error );
-		}
 
 		curl_close( $req );
 
