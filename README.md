@@ -56,9 +56,11 @@ $action     = $sp->action_info('ACTIONID');
 ```php
 $server     = $sp->server_create('SERVERNAME');
 $user       = $sp->sysuser_create('SERVERID', 'SYSUSERNAME', 'PASSWORD');
-$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS']) );
+$app        = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', ['DOMAINS'], ['WORDPRESS'] );
 $database   = $sp->database_create('APPID', 'DBNAME', 'DBUSER', 'DBPASSWORD');
 ```
+
+The WordPress array must contain the following keys: `sitle`, `admin_user`, `admin_password`, and `admin_email`
 
 ###Update a resource:
 ```php
@@ -80,12 +82,13 @@ $database   = $sp->database_delete('DBID');
 ```php
 $ssl = $sp->ssl_add('APPID', 'PRIVATEKEY', 'CERTIFICATE', 'CACERTS');
 $ssl = $sp->ssl_delete('APPID');
+$ssl = $sp->ssl_auto('APPID');
 ```
 
 ##Notes
 
-ServerPilot site: [https://serverpilot.io/](https://serverpilot.io)  
-ServerPilot's API doc: [https://github.com/ServerPilot/API](https://github.com/ServerPilot/API)  
-This project's Packagist link: [https://packagist.org/packages/daverogers/serverpilot-php](https://packagist.org/packages/daverogers/serverpilot-php)  
-Getting started with Composer: [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md)  
+ServerPilot site: [https://serverpilot.io/](https://serverpilot.io)
+ServerPilot's API doc: [https://github.com/ServerPilot/API](https://github.com/ServerPilot/API)
+This project's Packagist link: [https://packagist.org/packages/daverogers/serverpilot-php](https://packagist.org/packages/daverogers/serverpilot-php)
+Getting started with Composer: [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md)
 If this isn't your style, check out James West's PHP lib here: [https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper](https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper)
