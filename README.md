@@ -66,6 +66,7 @@ Or you can include manually:
 
   * [Add custom SSL to an app](#add-custom-ssl-to-an-app)
   * [Remove custom SSL from an app](#remove-custom-ssl-from-an-app)
+  * [Enable AutoSSL for an app](#enable-autossl-for-an-app)
 
 ### Connect
 
