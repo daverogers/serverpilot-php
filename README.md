@@ -438,10 +438,11 @@ $app    = $sp->app_info('APPID');
 | `sysuserid` | `string`       | **Required**. The System User that will "own" this App. Since every System User is specific to a Server, this implicitly determines on which Server the App will be created.
 | `runtime`   | `string`       | **Required**. The PHP runtime for an App. Choose from `php5.4`, `php5.5`, `php5.6`, `php7.0`, or `php7.1`.
 | `domains`   | `array`        | An array of domains that will be used in the webserver's configuration. If you set your app's domain name to *example.com*, Nginx and Apache will be configured to listen for both *example.com* and *www.example.com*. **Note**: The complete list of domains must be included in every update to this field.
+| `wordpress`   | `array`        | An array containing the following keys: ` site_title` , ` admin_user` , ` admin_password` , and ` admin_email` 
 
 
 ```php
-$app    = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', 'DOMAINS');
+$app    = $sp->app_create('APPNAME', 'SYSUSERID', 'RUNTIME', 'DOMAINS', 'WORDPRESS');
 ```
 
 When the request goes through successfully you should get this returned: 
@@ -676,6 +677,18 @@ $ssl    = $sp->ssl_add('APPID', 'KEY', 'CERT', 'CACERTS);
 
 ```php
 $ssl    = $sp->ssl_delete('APPID');
+```
+
+#### Enable AutoSSL for an app
+
+AutoSSL can only be enabled when an AutoSSL certificate is available for an app.
+
+Additionally, AutoSSL cannot be enabled when an app currently has a custom SSL certificate. To enable AutoSSL when an app is already using a custom SSL, first delete the app's custom SSL certificate.
+
+**Note** that disabling AutoSSL is not done through this API call but instead is done by deleting SSL from the app.
+
+```php
+$ssl    = $sp->ssl_auto('APPID');
 ```
 
 ##Notes
