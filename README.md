@@ -8,19 +8,19 @@ This simple PHP API client binds to ServerPilot's RESTful [API](https://github.c
 
 You can install the bindings via [Composer](http://getcomposer.org/). Add this to your `composer.json`:
 ```json
-	{
-		"require": {
-			"daverogers/serverpilot-php": "1.*"
-		}
+{
+	"require": {
+		"daverogers/serverpilot-php": "1.*"
 	}
+}
 ```
 ...and then install
 ```
-	composer.phar install
+composer.phar install
 ```
 Or you can include manually:
 ```php
-	include_once('/path/to/this/lib/ServerPilot.php');
+include_once('/path/to/this/lib/ServerPilot.php');
 ```
 
 ## Usage
@@ -695,7 +695,11 @@ $ssl    = $sp->ssl_auto('APPID');
 ##Notes
 
 ServerPilot site: [https://serverpilot.io/](https://serverpilot.io)
+
 ServerPilot's API doc: [https://github.com/ServerPilot/API](https://github.com/ServerPilot/API)
+
 This project's Packagist link: [https://packagist.org/packages/daverogers/serverpilot-php](https://packagist.org/packages/daverogers/serverpilot-php)
+
 Getting started with Composer: [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md)
+
 If this isn't your style, check out James West's PHP lib here: [https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper](https://github.com/jameswestnz/ServerPilot-API-PHP-Wrapper)
