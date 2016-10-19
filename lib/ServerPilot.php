@@ -395,7 +395,7 @@ class ServerPilot {
 		curl_close( $req );
 
         // Everything when fine
-        if($http_status == 200)
+        if( $http_status == 200 )
         {
             // Decode JSON by default
             if( $this->decode )
@@ -408,11 +408,11 @@ class ServerPilot {
         $data = json_decode( $response );
         
         // The error was provided by serverpilot
-        if(property_exists($response, 'error'))
+        if( property_exists( $response, 'error' ) )
             throw new ServerPilotException($data->error, $http_status);
         
         // No error as provided, pick a default
-        switch($http_status)
+        switch( $http_status )
         {
             case 400:
                 throw new ServerPilotException('We couldn\'t understand your request. Typically missing a parameter or header.', $http_status);

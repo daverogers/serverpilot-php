@@ -114,13 +114,13 @@ $sp->action_info('ACTIONID');
 
 ```json
 {
-  "data":
-  {
-    "id": "g3kiiYzxPgAjbwcY",
-    "serverid": "4zGDDO2xg30yEeum",
-    "status": "success",
-    "datecreated": 1403138066
-  }
+    "data":
+    {
+        "id": "g3kiiYzxPgAjbwcY",
+        "serverid": "4zGDDO2xg30yEeum",
+        "status": "success",
+        "datecreated": 1403138066
+    }
 }
 ```
 
@@ -134,24 +134,27 @@ $servers    = $sp->server_list();
 
 ```json
 {
-  "data": [
-  {
-    "id": "FqHWrrcUfRI18F0l",
-    "name": "www1",
-    "autoupdates": true,
-    "firewall": true,
-    "lastaddress": "1.2.3.4",
-    "lastconn": 1403130552,
-    "datecreated": 1403130551
-  }, {
-    "id": "4zGDDO2xg30yEeum",
-    "name": "vagrant",
-    "autoupdates": true,
-    "firewall": true,
-    "lastaddress": "1.2.3.4",
-    "lastconn": 1403130554,
-    "datecreated": 1403130553
-  }]
+    "data": 
+    [
+        {
+           "id": "FqHWrrcUfRI18F0l",
+            "name": "www1",
+            "autoupdates": true,
+            "firewall": true,
+            "lastaddress": "1.2.3.4",
+            "lastconn": 1403130552,
+            "datecreated": 1403130551
+        }, 
+        {
+            "id": "4zGDDO2xg30yEeum",
+            "name": "vagrant",
+            "autoupdates": true,
+            "firewall": true,
+            "lastaddress": "1.2.3.4",
+            "lastconn": 1403130554,     
+            "datecreated": 1403130553
+        }
+    ]
 }
 ```
 
@@ -164,16 +167,16 @@ $server    = $sp->server_info('SERVERID');
 
 ```json
 {
-  "data": 
- {
-     "id": "UXOSIYrdtL4cSGp3",
-     "name": "www2",
-     "autoupdates": true,
-     "firewall": true,
-     "lastaddress": "1.2.3.4",
-     "lastconn": 1403130554,
-     "datecreated": 1403130553
-   }
+    "data": 
+    {
+        "id": "UXOSIYrdtL4cSGp3",
+        "name": "www2",
+        "autoupdates": true,
+        "firewall": true,
+        "lastaddress": "1.2.3.4",
+        "lastconn": 1403130554,
+        "datecreated": 1403130553
+    }
 }
 ```
 
@@ -189,17 +192,16 @@ When the request goes through successfully you should get this returned:
 
 ```json
 {
-  "actionid": "tW2fu4hjHnsix6Rn",
+    "actionid": "tW2fu4hjHnsix6Rn",
     "data":
     {
-      "id": "`UXOSIYrdtL4cSGp3`",
-      "name": "www2",
-      "autoupdates": true,
-      "firewall": true,
-      "lastaddress": null,
-      "lastconn": null,
-      "datecreated": 1403130553,
-      "apikey": "nqXUevYSkpW09YKy7CY7PdnL14Q1HIlAfniJZwzjqNQ"
+        "id": "`UXOSIYrdtL4cSGp3`",
+        "name": "www2",
+        "autoupdates": true,  "firewall": true,
+        "lastaddress": null,
+        "lastconn": null,
+        "datecreated": 1403130553,
+        "apikey": "nqXUevYSkpW09YKy7CY7PdnL14Q1HIlAfniJZwzjqNQ"
     }
 }
 ```
@@ -227,16 +229,16 @@ $response    = $sp->server_update('SERVERID', 'FIREWALL':bool, 'AUTOUPDATES':boo
 
 ```json
 {
-  "data": 
- {
-     "id": "UXOSIYrdtL4cSGp3",
-     "name": "www2",
-     "autoupdates": true,
-     "firewall": true,
-     "lastaddress": "1.2.3.4",
-     "lastconn": 1403130554,
-     "datecreated": 1403130553
-   }
+    "data": 
+    {
+        "id": "UXOSIYrdtL4cSGp3",
+        "name": "www2",
+        "autoupdates": true,
+        "firewall": true,
+        "lastaddress": "1.2.3.4",
+        "lastconn": 1403130554,
+        "datecreated": 1403130553
+    }
 }
 ```
 
@@ -263,18 +265,19 @@ $systemUsers    = $sp->sysuser_list();
 
 ```json
 {
-  "data": 
-  [
-    {
-      "id": "PdmHhsb3fnaZ2r5f",
-      "name": "serverpilot",
-      "serverid": "FqHWrrcUfRI18F0l"
-    },
-    {
-      "id": "RvnwAIfuENyjUVnl",
-      "name": "serverpilot",
-      "serverid": "4zGDDO2xg30yEeum"
-    }]
+"data": 
+    [
+          {
+              "id": "PdmHhsb3fnaZ2r5f",
+              "name": "serverpilot",
+              "serverid": "FqHWrrcUfRI18F0l"
+          },
+          {
+              "id": "RvnwAIfuENyjUVnl",
+              "name": "serverpilot",
+              "serverid": "4zGDDO2xg30yEeum"
+          }
+    ]
 }
 ```
 
@@ -287,11 +290,11 @@ $systemUser    = $sp->sysuser_info('SERVERID');
 
 ```json
 {
-  "data":
-  {
-      "id": "PPkfc1NECzvwiEBI",
-      "name": "derek",
-      "serverid": "FqHWrrcUfRI18F0l"
+    "data":
+    {
+        "id": "PPkfc1NECzvwiEBI",
+        "name": "derek",
+        "serverid": "FqHWrrcUfRI18F0l"
     }
 }
 ```
@@ -315,12 +318,12 @@ When the request goes through successfully you should get this returned:
 
 ```json
 {
-  "actionid": "nnpgQoNzSK11fuTe",
-    "data":
+    actionid": "nnpgQoNzSK11fuTe",
+    data":
     {
-      "id": "PPkfc1NECzvwiEBI",
-      "name": "derek",
-      "serverid": "FqHWrrcUfRI18F0l"
+        id": "PPkfc1NECzvwiEBI",
+        "name": "derek",
+        "serverid": "FqHWrrcUfRI18F0l"
     }
 }
 ```
@@ -342,12 +345,12 @@ $response    = $sp->sysuser_update('SERVERID', 'PASSWORD');
 
 ```json
 {
-  "actionid": "OF42xCWkKcaX3qG2",
+    "actionid": "OF42xCWkKcaX3qG2",
     "data":
     {
-      "id": "RvnwAIfuENyjUVnl",
-      "name": "serverpilot",
-      "serverid": "4zGDDO2xg30yEeum"
+        "id": "RvnwAIfuENyjUVnl",
+        "name": "serverpilot",
+        "serverid": "4zGDDO2xg30yEeum"
     }
 }
 ```
@@ -360,8 +363,8 @@ $response    = $sp->sysuser_delete('SYSUSERID');
 
 ```json
 {
-  "actionid": "9tvygrrXZulYuizz",
-  "data": {}
+    "actionid": "9tvygrrXZulYuizz",
+    "data": {}
 }
 ```
 
@@ -376,33 +379,34 @@ $apps    = $sp->app_list();
 
 ```json
 {
-  "data": [
-            {
-              "id": "c77JD4gZooGjrF8K",
-              "datecreated": 1403139066,
-              "name": "blog",
-              "sysuserid": "RvnwAIfuENyjUVnl",
-              "domains": ["www.myblog.com", "blog.com"],
-              "ssl": null,
-              "serverid": "4zGDDO2xg30yEeum",
-              "runtime": "php7.0"
-            },
-            {
-              "id": "B1w7yc1tfUPQLIKS",
-              "datecreated": 1403143012,
-              "name": "store",
-              "sysuserid": "RvnwAIfuENyjUVnl",
-              "domains": ["www.mystore.com", "mystore.com"],
-              "ssl": {
-                "key": "-----BEGIN PRIVATE KEY----- ...",
+    "data": 
+    [
+        {
+            "id": "c77JD4gZooGjrF8K",
+            "datecreated": 1403139066,
+            "name": "blog",
+            "sysuserid": "RvnwAIfuENyjUVnl",
+            "domains": ["www.myblog.com", "blog.com"],
+            "ssl": null,
+            "serverid": "4zGDDO2xg30yEeum",
+            "runtime": "php7.0"
+        },
+        {
+            "id": "B1w7yc1tfUPQLIKS",
+            "datecreated": 1403143012,
+            "name": "store",
+            "sysuserid": "RvnwAIfuENyjUVnl",
+            "domains": ["www.mystore.com", "mystore.com"],
+            "ssl": {                "key": "-----BEGIN PRIVATE KEY----- ...",
                 "cert": "-----BEGIN CERTIFICATE----- ...",
                 "cacerts": "-----BEGIN CERTIFICATE----- ...",
                 "auto": false,
                 "force": false
-              },
-              "serverid": "4zGDDO2xg30yEeum",
-              "runtime": "php7.0"
-            }]
+            },
+            "serverid": "4zGDDO2xg30yEeum",
+            "runtime": "php7.0"
+        }
+    ]
 }
 ```
 
@@ -415,15 +419,15 @@ $app    = $sp->app_info('APPID');
 
 ```json
 {
-  "data":
+    "data":
     {
-      "id": "UXOSIYrdtL4cSGp3",
-      "name": "www2",
-      "autoupdates": true,
-      "firewall": true,
-      "lastaddress": "1.2.3.4",
-      "lastconn": 1403130554,
-      "datecreated": 1403130553
+        "id": "UXOSIYrdtL4cSGp3",
+        "name": "www2",
+        "autoupdates": true,
+        "firewall": true,
+        "lastaddress": "1.2.3.4",
+        "lastconn": 1403130554,
+        "datecreated": 1403130553
     }
 }
 ```
@@ -450,18 +454,18 @@ When the request goes through successfully you should get this returned:
 
 ```json
 {
-  "actionid": "dIrCNoWunW92lPjw",
-    "data":
-    {
-      "id": "nlcN0TwdZAyNEgdp",
-      "datecreated": 1403143012,
-      "name": "gallery",
-      "sysuserid": "RvnwAIfuENyjUVnl",
-      "domains": ["www.example.com", "example.com"],
-      "ssl": null,
-      "serverid": "4zGDDO2xg30yEeum",
-      "runtime": "php7.0"
-    }
+    "actionid": "dIrCNoWunW92lPjw",
+        "data":
+        {
+            "id": "nlcN0TwdZAyNEgdp",
+            "datecreated": 1403143012,
+            "name": "gallery",
+            "sysuserid": "RvnwAIfuENyjUVnl",
+            "domains": ["www.example.com", "example.com"],
+            "ssl": null,
+            "serverid": "4zGDDO2xg30yEeum",
+            "runtime": "php7.0"
+        }
 }
 ```
 
@@ -482,18 +486,18 @@ $response    = $sp->app_update('APPID', 'RUNTIME', 'DOMAINS');
 
 ```json
 {
-  "actionid": "KlsNzLikw3BRvShc",
-  "data":
-  {
-    "id": "nlcN0TwdZAyNEgdp",
-    "datecreated": 1403143012,
-    "name": "gallery",
-    "sysuserid": "RvnwAIfuENyjUVnl",
-    "domains": ["www.example.com", "example.com"],
-    "ssl": null,
-    "serverid": "4zGDDO2xg30yEeum",
-    "runtime": "php5.6"
-  }
+    "actionid": "KlsNzLikw3BRvShc",
+    "data":
+    {
+        "id": "nlcN0TwdZAyNEgdp",
+        "datecreated": 1403143012,
+        "name": "gallery",
+        "sysuserid": "RvnwAIfuENyjUVnl",
+        "domains": ["www.example.com", "example.com"],
+        "ssl": null,
+        "serverid": "4zGDDO2xg30yEeum",
+        "runtime": "php5.6"
+    }
 }
 ```
 
@@ -505,8 +509,8 @@ $response    = $sp->app_delete('APPID');
 
 ```json
 {
-  "actionid": "88Ypexhx28Y63eyA",
-  "data": {}
+    "actionid": "88Ypexhx28Y63eyA",
+    "data": {}
 }
 ```
 
@@ -522,19 +526,19 @@ $databases    = $sp->database_list();
 
 ```json
 {
-  "data":
-  [
-    {
-      "id": "hdXkAZchuj27Hm1L",
-      "name": "wordpress",
-      "appid": "c77JD4gZooGjrF8K",
-      "serverid": "4zGDDO2xg30yEeum",
-      "user": {
-        "id": "vt08Qz9kjOC3RVLr",
-        "name": "robert"
-      }
-    }
-  ]
+    "data":
+    [
+        {
+            "id": "hdXkAZchuj27Hm1L",
+            "name": "wordpress",
+            "appid": "c77JD4gZooGjrF8K",
+            "serverid": "4zGDDO2xg30yEeum",
+            "user": {
+                "id": "vt08Qz9kjOC3RVLr",
+                "name": "robert"
+            }
+        }
+    ]
 }
 ```
 
@@ -547,16 +551,16 @@ $app    = $sp->database_info('DBID');
 
 ```json
 {
-  "data":
-  {
-      "id": "8PV1OIAlAW3jbGmM",
-      "name": "gallerydb",
-      "appid": "nlcN0TwdZAyNEgdp",
-      "serverid": "4zGDDO2xg30yEeum",
-      "user": {
-        "id": "k2HWtU33mpUsfOdA",
-        "name": "arturo"
-      }
+    "data":
+    {
+        "id": "8PV1OIAlAW3jbGmM",
+        "name": "gallerydb",
+        "appid": "nlcN0TwdZAyNEgdp",
+        "serverid": "4zGDDO2xg30yEeum",
+        "user": {
+            "id": "k2HWtU33mpUsfOdA",
+            "name": "arturo"
+        }
     }
 }
 ```
@@ -582,17 +586,17 @@ When the request goes through successfully you should get this returned:
 
 ```json
 {
-  "actionid": "gPFiWP9hFNUxvT70",
+    "actionid": "gPFiWP9hFNUxvT70",
     "data":
     {
-      "id": "8PV1OIAlAW3jbGmM",
-      "name": "gallerydb",
-      "appid": "nlcN0TwdZAyNEgdp",
-      "serverid": "4zGDDO2xg30yEeum",
-      "user": {
-        "id": "k2HWtU33mpUsfOdA",
-        "name": "arturo"
-      }
+        "id": "8PV1OIAlAW3jbGmM",
+        "name": "gallerydb",
+        "appid": "nlcN0TwdZAyNEgdp",
+        "serverid": "4zGDDO2xg30yEeum",
+        "user": {
+            "id": "k2HWtU33mpUsfOdA",
+            "name": "arturo"
+        }
     }
 }
 ```
@@ -615,17 +619,17 @@ $response    = $sp->database_update('DBID', 'USERID', 'PASSWORD');
 
 ```json
 {
-  "actionid": "VfH12ukDJFv0RZAO",
+    "actionid": "VfH12ukDJFv0RZAO",
     "data":
     {
-      "id": "8PV1OIAlAW3jbGmM",
-      "name": "gallerydb",
-      "appid": "nlcN0TwdZAyNEgdp",
-      "serverid": "4zGDDO2xg30yEeum",
-      "user": {
-        "id": "k2HWtU33mpUsfOdA",
-        "name": "arturo"
-      }
+        "id": "8PV1OIAlAW3jbGmM",
+        "name": "gallerydb",
+        "appid": "nlcN0TwdZAyNEgdp",
+        "serverid": "4zGDDO2xg30yEeum",
+        "user": {
+            "id": "k2HWtU33mpUsfOdA",
+            "name": "arturo"
+        }
     }
 }
 ```
@@ -638,8 +642,8 @@ $response    = $sp->database_delete('APPID');
 
 ```json
 {
-  "actionid": "88Ypexhx28Y63eyA",
-  "data": {}
+    "actionid": "88Ypexhx28Y63eyA",
+    "data": {}
 }
 ```
 
@@ -664,12 +668,12 @@ $ssl    = $sp->ssl_add('APPID', 'KEY', 'CERT', 'CACERTS);
 
 ```json
 {
-  "actionid": "BzcMNZ9sdBY62vTd",
+    "actionid": "BzcMNZ9sdBY62vTd",
     "data":
     {
-      "key": "-----BEGIN PRIVATE KEY----- ... -----END PRIVATE KEY-----",
-      "cert": "-----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----",
-      "cacerts": "-----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----"
+        "key": "-----BEGIN PRIVATE KEY----- ... -----END PRIVATE KEY-----",
+        "cert": "-----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----",
+        "cacerts": "-----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----"
     }
 }
 ```
