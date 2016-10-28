@@ -318,10 +318,10 @@ When the request goes through successfully you should get this returned:
 
 ```json
 {
-    actionid": "nnpgQoNzSK11fuTe",
-    data":
+    "actionid": "nnpgQoNzSK11fuTe",
+    "data":
     {
-        id": "PPkfc1NECzvwiEBI",
+        "id": "PPkfc1NECzvwiEBI",
         "name": "derek",
         "serverid": "FqHWrrcUfRI18F0l"
     }
