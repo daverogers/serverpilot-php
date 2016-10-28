@@ -48,7 +48,9 @@ class ServerPilot {
 	 * Create a new server
 	 *
 	 * @param	string		Nickname of the server. Must be 1 to 255 characters in length, may only contain the characters abcdefghijklmnopqrstuvwxyz0123456789.-
-	 */
+     *
+     * @return mixed
+     */
 	public function server_create( $name ) {
 		$params['name'] = $name;
 
@@ -59,7 +61,9 @@ class ServerPilot {
 	 * Retrieve information on an existing server
 	 *
 	 * @param	string		ID of the server
-	 */
+     *
+     * @return mixed
+     */
 	public function server_info( $id ) {
 		return $this->_send_request( "servers/$id" );
 	}
@@ -68,7 +72,9 @@ class ServerPilot {
 	 * Delete a server
 	 *
 	 * @param	string		ID of the server
-	 */
+     *
+     * @return mixed
+     */
 	public function server_delete( $id ) {
 		return $this->_send_request( "servers/$id", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
 	}
@@ -79,7 +85,9 @@ class ServerPilot {
 	 * @param	string		ID of the server
 	 * @param	bool		"Enabled" state of the Server firewall (False = firewall is not enabled)
 	 * @param	bool		"Enabled" state of automatic system updates (False = automatic system updates are not enabled)
-	 */
+     *
+     * @return mixed
+     */
 	public function server_update( $id, $firewall = null, $autoupdates = null ) {
 		if( $firewall )
 			$params['firewall'] = $firewall;
@@ -103,7 +111,9 @@ class ServerPilot {
 	 * @param	string		ID of the server
 	 * @param	string		Name of the new user. Must be 3 to 32 characters in length, may only contain the characters abcdefghijklmnopqrstuvwxyz0123456789.-
 	 * @param	string		Password of the new user. If user has no password, they will not be able to log in. No leading or trailing whitespace is allowed, must be at least 8 characters in length.
-	 */
+     *
+     * @return mixed
+     */
 	public function sysuser_create( $id, $name, $password = NULL ) {
 		$params = array(
 			'serverid'	=> $id,
@@ -118,7 +128,9 @@ class ServerPilot {
 	 * Retrieve information on an existing system user
 	 *
 	 * @param	string		ID of the system user
-	 */
+     *
+     * @return mixed
+     */
 	public function sysuser_info( $id ) {
 		return $this->_send_request( "sysusers/$id" );
 	}
@@ -127,7 +139,9 @@ class ServerPilot {
 	 * Delete a system user
 	 *
 	 * @param	string		ID of the system user
-	 */
+     *
+     * @return mixed
+     */
 	public function sysuser_delete( $id ) {
 		return $this->_send_request( "sysusers/$id", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
 	}
@@ -137,7 +151,9 @@ class ServerPilot {
 	 *
 	 * @param	string		ID of the system user
 	 * @param	string		New password of the App user. No leading or trailing whitespace is allowed, must be at least 8 characters in length.
-	 */
+     *
+     * @return mixed
+     */
 	public function sysuser_update( $id, $password ) {
 		$params['password'] = $password;
 
@@ -180,7 +196,9 @@ class ServerPilot {
 	 * Retrieve information on an existing app
 	 *
 	 * @param	string		ID of the app
-	 */
+     *
+     * @return mixed
+     */
 	public function app_info( $id ) {
 		return $this->_send_request( "apps/$id" );
 	}
@@ -189,7 +207,9 @@ class ServerPilot {
 	 * Delete an app
 	 *
 	 * @param	string		ID of the app
-	 */
+     *
+     * @return mixed
+     */
 	public function app_delete( $id ) {
 		return $this->_send_request( "apps/$id", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
 	}
@@ -202,7 +222,9 @@ class ServerPilot {
 	 * @param	array		An array of domains that will be used in the webserver's configuration.
 	 *						If you set your app's domain name to example.com, Nginx and Apache will be configured to listen for both example.com and www.example.com.
 	 *						Note: The complete list of domains must be included in every update to this field.
-	 */
+     *
+     * @return mixed
+     */
 	public function app_update( $id, $runtime = NULL, $domains = NULL ) {
 		if( $runtime )
 			$params['runtime']	= $runtime;
@@ -233,7 +255,8 @@ class ServerPilot {
 	 * @param	string		Contents of the private key
 	 * @param	string		Contents of the certificate
 	 * @param	string		Contents of the CA certificate(s). If none, NULL is acceptable.
-	 */
+     *
+     * @return mixed     */
 	public function ssl_add( $id, $key, $cert, $cacerts = NULL) {
 		$params = array(
 			'key'		=> $key,
@@ -247,7 +270,9 @@ class ServerPilot {
 	 * Delete an SSL cert for an app - requires Coach or Business plan
 	 *
 	 * @param	string		ID of the app
-	 */
+     *
+     * @return mixed
+     */
 	public function ssl_delete( $id ) {
 		return $this->_send_request( "apps/$id/ssl", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
 	}
@@ -264,7 +289,9 @@ class ServerPilot {
 	 * Retrieve information on an existing database
 	 *
 	 * @param	string		ID of the database
-	 */
+     *
+     * @return mixed
+     */
 	public function database_info( $id ) {
 		return $this->_send_request( "dbs/$id" );
 	}
@@ -276,7 +303,9 @@ class ServerPilot {
 	 * @param	string		Name of the database. Length must be between 3 and 64 characters, may contain lowercase ascii letters, digits, or a dash.
 	 * @param	string		Name of database user
 	 * @param	string		Password for database user. Length must be between 1 and 16 characters, may contain lowercase ascii letters, digits, an underscore, or a dash.
-	 */
+     *
+     * @return mixed
+     */
 	public function database_create( $id, $name, $username, $password ) {
 		$user = new stdClass();
 		$user->name = $username;
@@ -294,7 +323,9 @@ class ServerPilot {
 	 * Delete a database
 	 *
 	 * @param	string		ID of the database
-	 */
+     *
+     * @return mixed
+     */
 	public function database_delete( $id ) {
 		return $this->_send_request( "dbs/$id", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
 	}
@@ -305,7 +336,9 @@ class ServerPilot {
 	 * @param	string		ID of the database
 	 * @param	string		ID for the database user being updated
 	 * @param	string		New password for this database user. Length must be between 1 and 16 characters, may contain lowercase ascii letters, digits, an underscore, or a dash
-	 */
+     *
+     * @return mixed
+     */
 	public function database_update( $id, $userid, $password ) {
 		$user = new stdClass();
 		$user->id = $userid;
@@ -320,12 +353,21 @@ class ServerPilot {
 	 * Retrieve information on a particular action
 	 *
 	 * @param	string		ID of the action
-	 */
+     *
+     * @return mixed
+     */
 	public function action_info( $id ) {
 		return $this->_send_request( "actions/$id" );
 	}
-
-
+    
+    /**
+     * @param        string     $url_segs
+     * @param array  array      $params
+     * @param string string     $http_method
+     *
+     * @return mixed
+     * @throws \ServerPilotException
+     */
 	private function _send_request( $url_segs, $params = array(), $http_method = 'get' )
 	{
 		// Initialize and configure the request
@@ -352,10 +394,50 @@ class ServerPilot {
 
 		curl_close( $req );
 
-		// Decode JSON by default
-		if( $this->decode )
-			return json_decode( $response );
-		else
-			return $response;
+        // Everything when fine
+        if( $http_status == 200 )
+        {
+            // Decode JSON by default
+            if( $this->decode )
+                return json_decode( $response );
+            else
+                return $response;
+        }
+        
+        // Some error occured
+        $data = json_decode( $response );
+        
+        // The error was provided by serverpilot
+        if( property_exists( $response, 'error' ) )
+            throw new ServerPilotException($data->error, $http_status);
+        
+        // No error as provided, pick a default
+        switch( $http_status )
+        {
+            case 400:
+                throw new ServerPilotException('We couldn\'t understand your request. Typically missing a parameter or header.', $http_status);
+            break;
+            case 401:
+                throw new ServerPilotException('Either no authentication credentials were provided or they are invalid.', $http_status);
+            break;
+            case 402:
+                throw new ServerPilotException('Method is restricted to users on the Coach or Business plan.', $http_status);
+            break;
+            case 403:
+                throw new ServerPilotException('Forbidden.', $http_status);
+            break;
+            case 404:
+                throw new ServerPilotException('You requested a resource that does not exist.', $http_status);
+            break;
+            case 409:
+                throw new ServerPilotException('Typically when trying creating a resource that already exists.', $http_status);
+            break;
+            case 500:
+                throw new ServerPilotException('Something unexpected happened on ServerPilot\'s end.', $http_status);
+            break;
+            default:
+                throw new ServerPilotException('Unknown error.', $http_status);
+                break;
+        }
 	}
 }
