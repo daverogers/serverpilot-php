@@ -278,6 +278,21 @@ class ServerPilot {
 	}
 
 	/**
+	 * Force SSL redirect for an app - requires Coach or Business plan
+	 *
+	 * @param $id
+	 * @param $force
+	 * @return mixed
+	 */
+	public function ssl_force( $id, $force) {
+		$params = array(
+			'force' => $force,
+		);
+
+		return $this->_send_request( "apps/$id/ssl", $params, ServerPilot::SP_HTTP_METHOD_POST );
+	}
+
+	/**
 	 * Retrieve list of all databases
 	 *
 	 */
