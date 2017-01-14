@@ -67,6 +67,7 @@ include_once('/path/to/this/lib/ServerPilot.php');
   * [Add custom SSL to an app](#add-custom-ssl-to-an-app)
   * [Remove custom SSL from an app](#remove-custom-ssl-from-an-app)
   * [Enable AutoSSL for an app](#enable-autossl-for-an-app)
+  * [Force HTTP to HTTPS redirect for an app](#force-ssl-redirect-for-an-app)
 
 ### Connect
 
@@ -695,6 +696,16 @@ Additionally, AutoSSL cannot be enabled when an app currently has a custom SSL c
 ```php
 $ssl    = $sp->ssl_auto('APPID');
 ```
+#### Force SSL redirect for an app
+
+orceSSL can only be enabled when an app already has SSL enabled.
+
+You cannot enable ForceSSL at the same time as adding a custom SSL certificate or enabling AutoSSL.
+
+```php
+$ssl    = $sp->ssl_force('APPID', 'FORCE':bool);
+```
+
 
 ##Notes
 
