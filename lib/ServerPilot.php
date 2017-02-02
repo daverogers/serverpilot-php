@@ -5,8 +5,9 @@
  *
  * @link		<github>	https://github.com/daverogers/serverpilot-php
  * @link		<packagist>	https://packagist.org/packages/daverogers/serverpilot-php
- * @version		1.0.2
+ * @version		1.0.3
  * @author		Dave Rogers <redcore@gmail.com>
+ * @contributor m0byd1ck (https://github.com/m0byd1ck)
  */
 
 class ServerPilot {
@@ -275,6 +276,21 @@ class ServerPilot {
      */
 	public function ssl_delete( $id ) {
 		return $this->_send_request( "apps/$id/ssl", array(), ServerPilot::SP_HTTP_METHOD_DELETE );
+	}
+
+	/**
+	 * Force SSL redirect for an app - requires Coach or Business plan
+	 *
+	 * @param $id
+	 * @param $force
+	 * @return mixed
+	 */
+	public function ssl_force( $id, $force) {
+		$params = array(
+			'force' => $force,
+		);
+
+		return $this->_send_request( "apps/$id/ssl", $params, ServerPilot::SP_HTTP_METHOD_POST );
 	}
 
 	/**
