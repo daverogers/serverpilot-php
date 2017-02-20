@@ -335,8 +335,8 @@ When the request goes through successfully you should get this returned:
 
 | Name        | Type           | Description
 | ----------- | :------------: | :---------------------------------------
-| `serverid`      | `string`       | **Required**. The id of the Server.
-| `password`   | `string`       | The password of the System User. If user has no password, they will not be able to log in with a password. No leading or trailing whitespace is allowed and the password must be at least 8 and no more than 200 characters long.
+| `sysuserid` | `string`       | **Required**. The id of the System User.
+| `password`  | `string`       | The password of the System User. If user has no password, they will not be able to log in with a password. No leading or trailing whitespace is allowed and the password must be at least 8 and no more than 200 characters long.
 
 Every parameter except for app id is optional (meaning that by providing `null` nothing will be changed). 
 
