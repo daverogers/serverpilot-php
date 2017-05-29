@@ -424,7 +424,7 @@ class ServerPilot {
         $data = json_decode( $response );
 
         // The error was provided by serverpilot
-        if( property_exists( $response, 'error' ) && property_exists( $response, 'message' ) )
+        if( property_exists( $data, 'error' ) && property_exists( $data, 'message' ) )
             throw new ServerPilotException($data->error->message, $http_status);
 
         // No error as provided, pick a default
