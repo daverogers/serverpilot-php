@@ -375,7 +375,7 @@ class ServerPilot {
 	public function action_info( $id ) {
 		return $this->_send_request( "actions/$id" );
 	}
-    
+
     /**
      * @param        string     $url_segs
      * @param array  array      $params
@@ -419,14 +419,14 @@ class ServerPilot {
             else
                 return $response;
         }
-        
-        // Some error occured
+
+        // Some error occurred
         $data = json_decode( $response );
-        
+
         // The error was provided by serverpilot
-        if( property_exists( $response, 'error' ) )
-            throw new ServerPilotException($data->error, $http_status);
-        
+        if( property_exists( $data, 'error' ) && property_exists( $data->error, 'message' ) )
+            throw new ServerPilotException($data->error->message, $http_status);
+
         // No error as provided, pick a default
         switch( $http_status )
         {
